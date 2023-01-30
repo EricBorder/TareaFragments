@@ -31,10 +31,5 @@ class MultiplicacionFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_multiplicacion, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
