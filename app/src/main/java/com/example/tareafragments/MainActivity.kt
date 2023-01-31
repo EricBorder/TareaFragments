@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import com.example.tareafragments.ui.main.MainViewModel
 import com.example.tareafragments.ui.main.MultiplicacionFragment
 import com.example.tareafragments.ui.main.SumaFragment
+import androidx.activity.viewModels
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
        val multiplicacion: Button = findViewById(R.id.multiplicacion)
        val random = (0..9).random()
        val random2 = (0..9).random()
+       val miModelo by viewModels<MainViewModel>()
 
        // El botón para iniciar la suma
        var botonsuma: Button = findViewById(R.id.suma)
@@ -39,7 +41,7 @@ class MainActivity : AppCompatActivity() {
            startActivityForResult(intento1, REQUEST_SUMA)
        }
        // El botón para iniciar la suma
-       var botonMultiplicacion: Button = findViewById(R.id.suma)
+       var botonMultiplicacion: Button = findViewById(R.id.multiplicacion)
        // Escuchador del boton de la suma
        botonMultiplicacion.setOnClickListener {
            // Creamos un intent específico que iniciará la suma
@@ -53,6 +55,9 @@ class MainActivity : AppCompatActivity() {
 
        suma.setOnClickListener { replaceFragment(SumaFragment()) }
        multiplicacion.setOnClickListener { replaceFragment(MultiplicacionFragment()) }
+
+       //miModelo.onFragments()
+
    }
     private fun replaceFragment(fragment: Fragment){
         val fragmentTransaction = supportFragmentManager.beginTransaction()
