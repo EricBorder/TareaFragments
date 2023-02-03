@@ -25,43 +25,50 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <TextView
-        android:id="@+id/textRandom1"
+        android:id="@+id/textResultado"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:hint="numero 1"
+        android:fontFamily="sans-serif-black"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toTopOf="@+id/multiplicacion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.931" />
 
     <TextView
         android:id="@+id/textRandom2"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:hint="numero 2"
+        android:fontFamily="sans-serif-black"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toTopOf="@+id/textResultado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintHorizontal_bias="0.598"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.804" />
 
     <TextView
-        android:id="@+id/textResultado"
+        android:id="@+id/textRandom1"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:hint="resultado"
+        android:fontFamily="sans-serif-black"
+        android:justificationMode="inter_word"
         android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toTopOf="@+id/textResultado"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.401"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.804" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
