@@ -1,6 +1,5 @@
 package com.example.tareafragments.ui.main
 
-import android.content.pm.ActivityInfo
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,8 +25,10 @@ class MultiplicacionFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
+        //Instanciamos ViewModel que usaremos para llamar a nuestra clase ViewModel
         val miModelo by viewModels<MainViewModel>()
 
+        //Observamos el cambio en el random
         miModelo.liveRandom.observe(
             this,
             Observer(
@@ -39,6 +40,7 @@ class MultiplicacionFragment : Fragment() {
             )
 
         )
+        //Observamos el cambio en el random2
         miModelo.liveRandom2.observe(
             this,
             Observer(
@@ -50,7 +52,7 @@ class MultiplicacionFragment : Fragment() {
             )
 
         )
-
+        //Observamos el cambio en el resultado
         miModelo.liveResultado.observe(
             this,
             Observer(
@@ -62,21 +64,26 @@ class MultiplicacionFragment : Fragment() {
             )
         )
 
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Instanciamos variable view en el fragmento de la multiplicación
         val view: View = inflater.inflate(R.layout.fragment_multiplicacion, container, false)
+        //Instanciamos variable del botón de la multiplicación y asociamos a su layout del fragment
         val botonMulti: Button? = view.findViewById(R.id.multiplicacion)
+        //Instanciamos variable del textView del resultado y asociamos a su layout del fragment
         val resultadoText: TextView? = view.findViewById(R.id.textResultado)
 
-        botonMulti?.setOnClickListener{
+        //Ponemos un escuchador al botón y llamamos a la función de multiplicar del viewModel
+        botonMulti?.setOnClickListener {
             viewModel.hacerMultiplicacion()
+            //Ponemos resultado de la función en su respectivo textView
             resultadoText?.text = viewModel.resultado.toString()
         }
+        //Devolvemos la vista
         return view
 
     }
