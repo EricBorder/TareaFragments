@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         //Ponemos un escuchador al botón de la multiplicación y le añadimos la función
         multiplicacion.setOnClickListener { replaceFragment(MultiplicacionFragment()) }
 
-
     }
 
     /**
