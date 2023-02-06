@@ -25,8 +25,10 @@ class SumaFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
+        //Instanciamos ViewModel que usaremos para llamar a nuestra clase ViewModel
         val miModelo by viewModels<MainViewModel>()
 
+        //Observamos el cambio en el random
         miModelo.liveRandom.observe(
             this,
             Observer(
@@ -38,6 +40,7 @@ class SumaFragment : Fragment() {
             )
 
         )
+        //Observamos el cambio en el random2
         miModelo.liveRandom2.observe(
             this,
             Observer(
@@ -49,7 +52,7 @@ class SumaFragment : Fragment() {
             )
 
         )
-
+        //Observamos el cambio en el resultado
         miModelo.liveResultado.observe(
             this,
             Observer(
@@ -68,14 +71,20 @@ class SumaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //Instanciamos variable view en el fragmento de la suma
         val view: View = inflater.inflate(R.layout.fragment_suma, container, false)
+        //Instanciamos variable del botón de la suma y asociamos a su layout del fragment
         val botonMulti: Button? = view.findViewById(R.id.suma)
+        //Instanciamos variable del textView del resultado y asociamos a su layout del fragment
         val resultadoText: TextView? = view.findViewById(R.id.sumaResultado)
 
+        //Ponemos un escuchador al botón y llamamos a la función de sumar del viewModel
         botonMulti?.setOnClickListener {
             viewModel.hacerSuma()
+            //Ponemos resultado de la función en su respectivo textView
             resultadoText?.text = viewModel.resultado.toString()
         }
+        //Devolvemos la vista
         return view
 
     }
